@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pour Ana ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      min-height: 100vh;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      margin-bottom: 10px;
+      animation: slideDown 1.5s ease-out;
+    }
+
+    .date {
+      font-size: 1.1em;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .gallery img {
+      width: 180px;
+      height: 240px;
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+
+    p {
+      max-width: 600px;
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      animation: fadeText 3s ease-in;
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: beat 1s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeText {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      opacity: 0.85;
+      animation: fadeText 3s ease-in;
+    }
+
+    /* Confettis animés */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      opacity: 0.8;
+      top: -10px;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    /* Bouton musique */
+    #playMusic {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: none;
+      background-color: rgba(255,255,255,0.2);
+      color: white;
+      transition: background 0.3s;
+    }
+    #playMusic:hover {
+      background-color: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Joyeuse Saint-Valentin Ana ❤️</h1>
+    <div class="date">Depuis le 30 janvier 2025</div>
+
+    <!-- Bouton pour la musique -->
+    <button id="playMusic">🎵 Appuie pour écouter la musique</button>
+    <audio id="bgMusic" loop>
+      <source src="jour-meilleur.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l’audio.
+    </audio>
+
+    <div class="gallery">
+      <img src="photo1.jpeg" alt="Ana et moi au parc">
+      <img src="photo2.jpeg" alt="Souvenir inoubliable">
+      <img src="photo3.jpeg" alt="Mon bonheur avec Ana">
+    </div>
+
+    <p>
+      Ana,  
+      <br><br>
+      Chaque moment avec toi est précieux.  
+      Tes sourires, ta douceur, ta présence…  
+      tout chez toi rend mes journées plus belles.
+      <br><br>
+      Je suis tellement heureux de partager cette aventure avec toi.
+    </p>
+
+    <div class="heart" aria-label="cœur qui bat">💖</div>
+
+    <footer>
+      Avec tout mon amour 💕
+    </footer>
+  </div>
+
+  <!-- Confettis -->
+  <script>
+    for(let i=0; i<30; i++){
+      let confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.backgroundColor = `hsl(${Math.random()*360}, 80%, 70%)`;
+      confetti.style.animationDuration = 3 + Math.random()*3 + 's';
+      document.body.appendChild(confetti);
+    }
+
+    // Musique bouton
+    const btn = document.getElementById('playMusic');
+    const music = document.getElementById('bgMusic');
+    btn.addEventListener('click', () => {
+      music.play();
+      btn.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
